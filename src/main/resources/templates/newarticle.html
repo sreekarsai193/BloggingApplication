@@ -1,0 +1,43 @@
+<!-- article_form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Article</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto py-8">
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <h1 class="text-2xl font-bold mb-6">Add New Article</h1>
+
+    <form action="/submitarticle" method="post">
+      <!-- Title input -->
+      <div>
+        <label for="title" class="block text-sm font-bold">Title:</label>
+        <input type="text" id="title" name="title" class="w-full px-4 py-2 border rounded" required>
+      </div>
+
+      <!-- Date input -->
+      <div>
+        <label for="date" class="block text-sm font-bold">Date:</label>
+        <input type="date" id="date" name="date" class="w-full px-4 py-2 border rounded" required>
+      </div>
+
+      <!-- Content input -->
+      <div>
+        <label for="content" class="block text-sm font-bold">Content:</label>
+        <textarea id="content" name="content" class="w-full px-4 py-2 border rounded" required></textarea>
+      </div>
+
+      <!-- Submit button -->
+      <div class="mt-4">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
