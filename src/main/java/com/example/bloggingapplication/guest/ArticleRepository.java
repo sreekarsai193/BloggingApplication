@@ -1,12 +1,15 @@
 package com.example.bloggingapplication.guest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Repository;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class ArticleRepository {
     private final ObjectMapper mapper = new ObjectMapper();
     private final String directoryPath="articles";
@@ -15,8 +18,21 @@ public class ArticleRepository {
     public ArticleRepository() {
         LoadArticles();
     }
+    public List<Article> GetAllArticles() {
+        return articles;
+    }
+    public Article GetArticleByTitle(String title) {
+        for(Article article: articles) {
+            if(article.getTitle().equals(title)) {
+                return article;
+            }
+        }
+        System.out.println("Aticle does not exist");
+        return null;
+    }
 
     void LoadArticles() {
+        articles.clear();
         File folder=new File(directoryPath);
         File[] files=folder.listFiles((dir, name)
                 -> name.endsWith(".json"));
@@ -62,4 +78,26 @@ public class ArticleRepository {
             }
         }
     }
+    public void DeleteArticle(String title) throws IOException {
+
+            String fileName = title.replace(" ", "_") + ".json";
+            File file = new File(directoryPath + File.separator + fileName);
+
+            if (file.exists()) {
+                if (file.delete()) {
+                    for (int i = 0; i < articles.size(); i++) {
+                        if (articles.get(i).getTitle().equals(title)) {
+                            articles.remove(i);
+                            break;
+                        }
+                    }
+                    System.out.println("Article and file deleted successfully.");
+                } else {
+                    System.out.println("Failed to delete the file.");
+                }
+            } else {
+                System.out.println("File does not exist.");
+            }
+        }
+
 }
