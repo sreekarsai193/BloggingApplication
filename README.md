@@ -2,7 +2,9 @@
 
 This is a simple personal blog built with Java Spring Boot. It has two sections: a Guest section where visitors can read articles and an Admin section for managing articles (add, edit, delete).
 
-Project url : https://github.com/sreekarsai193/BloggingApplication
+Project url : [Blogging application](https://github.com/sreekarsai193/BloggingApplication)
+
+Project requirements : [roadmap.sh](https://roadmap.sh/projects/personal-blog)
 ## Features
 
 - **Guest Section**: View the list of articles and read individual articles.
@@ -68,7 +70,8 @@ mvnw.cmd spring-boot:run
     - **Note**: You cannot add an article with an existing title.
 
 
+## Acknowledgment
 
-    
+Thanks to [roadmap.sh](https://roadmap.sh/) for the requirements.
    
    
