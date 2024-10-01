@@ -19,12 +19,23 @@ Ensure that you have the following installed on your system:
 
 1. **Clone the repository**:
 
-   ```bash
+   ```
    git clone https://github.com/your-username/your-blog-repo.git
-   cd your-blog-repo 
-2. **Run the project**
-   ```bash
+   cd your-blog-repo
+   ```
+## Run the Project
+
+To run the Spring Boot application, use the following command:
+
+### If you are in a Unix-like terminal (Linux, macOS):
+```
    ./mvnw spring-boot:run
+```
+### If you are in Windows CMD:
+```
+mvnw.cmd spring-boot:run
+```
+ 
 ## Access the pages
 
 ### Guest Section
